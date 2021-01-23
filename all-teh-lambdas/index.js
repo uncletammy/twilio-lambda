@@ -6,10 +6,10 @@ const twilio = require('twilio');
 
 exports.handler = async (event, context) => {
     let body = JSON.parse(event.body);
-
     const accountSid = process.env.TWILIO_SID;
     const authToken = process.env.TWILIO_TOKEN;
 
+console.log('BODY!', body, accountSid, authToken);
     const client = twilio(accountSid, authToken);
     let responseObject = {
         statusCode: undefined,
@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
 
     client.messages
     .create({
-        body: body.words,
+        body: 'shramp!!!',
         from: '+14252767041',
         to: '+18479247616'
     })
