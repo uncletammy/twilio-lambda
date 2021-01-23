@@ -4,6 +4,7 @@
   "description": "",
   "main": "send_sms.js",
   "dependencies": {
+    "aws-sdk": "^2.831.0",
     "twilio": "^3.55.0"
   },
   "devDependencies": {},
