@@ -1,5 +1,15 @@
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+let config;
+
+try {
+  config = require('./environment-variables.js');
+}
+catch(nope) {
+  console.log('No environment variables file (We must be in production)');
+}
+
+const accountSid = process.env.TWILIO_SID || config.sid;
+const authToken = process.env.TWILIO_TOKEN || config.token;
+
 const client = require('twilio')(accountSid, authToken);
 
 client.messages
